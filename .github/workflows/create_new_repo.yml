@@ -25,6 +25,7 @@ jobs:
         run: go build -o bin/repo-generator
 
       - name: RUN
+        id: run
         run: bin/repo-generator
 
         env:
@@ -34,4 +35,4 @@ jobs:
           NEW_REPO_NAME: '${{ github.event.inputs.repo-name }}'
           GITHUB_USERNAME: '${{ github.event.inputs.username }}'
       - name: Log URL to the repo
-        run: echo "The new repo is ${{ steps.RUN.outputs.repo_url }}"
+        run: echo "The new repo is ${{ steps.run.outputs.repo_url }}"
