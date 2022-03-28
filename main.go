@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	token := os.Getenv("GITHUB_TOKEN")
+	token := os.Getenv("ADMIN_GITHUB_TOKEN")
 	orgName := os.Getenv("ORG_NAME")
 	newRepoName := os.Getenv("NEW_REPO_NAME")
 	githubUsername := os.Getenv("GITHUB_USERNAME")
