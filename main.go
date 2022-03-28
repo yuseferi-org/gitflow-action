@@ -8,11 +8,14 @@ import (
 	"os"
 )
 
+const team = "PHP"
+const namePattern = "%s_challenge_%s"
+
 func main() {
 	token := os.Getenv("ADMIN_GITHUB_TOKEN")
 	orgName := os.Getenv("ORG_NAME")
-	newRepoName := os.Getenv("NEW_REPO_NAME")
 	githubUsername := os.Getenv("GITHUB_USERNAME")
+	newRepoName := fmt.Sprintf(namePattern, team, githubUsername)
 
 	ctx := context.Background()
 	ts := oauth2.StaticTokenSource(
