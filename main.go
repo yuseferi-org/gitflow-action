@@ -14,11 +14,6 @@ func main() {
 	newRepoName := os.Getenv("NEW_REPO_NAME")
 	githubUsername := os.Getenv("GITHUB_USERNAME")
 
-	fmt.Println(token)
-	fmt.Println(orgName)
-	fmt.Println(newRepoName)
-	fmt.Println(githubUsername)
-
 	ctx := context.Background()
 	ts := oauth2.StaticTokenSource(
 		&oauth2.Token{AccessToken: token},
@@ -42,7 +37,7 @@ func main() {
 		panic(err)
 	}
 
-	fmt.Println(repository)
-	fmt.Println(repository.HTMLURL)
+	//fmt.Println(repository)
+	fmt.Println("::set-output name=repo_url::" + *repository.HTMLURL)
 
 }

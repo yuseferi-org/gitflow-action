@@ -33,5 +33,5 @@ jobs:
           ORG_NAME: 'yuseferi-test-org'
           NEW_REPO_NAME: '${{ github.event.inputs.repo-name }}'
           GITHUB_USERNAME: '${{ github.event.inputs.username }}'
-#      - name: Log URL to the repo
-#        run: echo "The new repo is ${{ steps.create-repo.outputs.repo-url }}"
+      - name: Log URL to the repo
+        run: echo "The new repo is ${{ steps.RUN.outputs.repo_url }}"
