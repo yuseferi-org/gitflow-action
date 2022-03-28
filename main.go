@@ -37,7 +37,7 @@ func main() {
 		panic(err)
 	}
 
-	//fmt.Println(repository)
-	fmt.Println("::set-output name=repo_url::" + *repository.HTMLURL)
+	fmt.Println(repository)
+	fmt.Println("::set-output name=repo_url::test")
 
 }
