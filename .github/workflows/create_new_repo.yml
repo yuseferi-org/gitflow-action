@@ -14,15 +14,22 @@ jobs:
     name: Create new repository to php candidate
     steps:
       - name: Creating GitHub Organization Repository
-        uses: golang:1.18-alpine
-        id: create-repo
-        run: |
-          go mod install
-          go build -o bin/repo-generator
-          bin/repo-generator
+        uses: actions/checkout@v2
+
+      - name: Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: 1.17
+
+      - name: Build
+        run: go build -o bin/repo-generator
+
+      - name: RUN
+        run: bin/repo-generator
+
         env:
           ADMIN_GITHUB_TOKEN: ${{ secrets.ADMIN_GITHUB_TOKEN }}
-#          ORG_NAME: 'code-with-auto1'
+          #          ORG_NAME: 'code-with-auto1'
           ORG_NAME: 'yuseferi-test-org'
           newRepoName: '${{ github.event.inputs.repo-name }}'
           githubUsername: '${{ github.event.inputs.username }}'
