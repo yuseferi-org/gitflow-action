@@ -38,6 +38,6 @@ func main() {
 	}
 
 	fmt.Println(repository.GetHTMLURL())
-	fmt.Println("::set-output name=repo_url::test")
+	fmt.Println("::set-output name=repo_url::" + repository.GetHTMLURL())
 
 }
