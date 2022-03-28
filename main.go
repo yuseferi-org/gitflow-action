@@ -2,14 +2,13 @@ package main
 
 import (
 	"context"
+	"fmt"
 	"github.com/google/go-github/v43/github"
 	"golang.org/x/oauth2"
 	"os"
 )
 
 func main() {
-	//os.Setenv("GITHUB_TOKEN", "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")
-	//orgName := "yuseferi-test-org"
 	token := os.Getenv("GITHUB_TOKEN")
 	orgName := os.Getenv("ORG_NAME")
 	newRepoName := os.Getenv("NEW_REPO_NAME")
@@ -23,12 +22,12 @@ func main() {
 	tc := oauth2.NewClient(ctx, ts)
 	client := github.NewClient(tc)
 
-	// create a new private repository named "foo"
+	// create a new private repository
 	repo := &github.Repository{
 		Name:    github.String(newRepoName),
 		Private: github.Bool(true),
 	}
-	_, _, err := client.Repositories.Create(ctx, orgName, repo)
+	repository, _, err := client.Repositories.Create(ctx, orgName, repo)
 	if err != nil {
 		panic(err)
 	}
@@ -37,5 +36,8 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+
+	fmt.Println(repository)
+	fmt.Println(repository.HTMLURL)
 
 }

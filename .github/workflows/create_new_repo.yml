@@ -27,8 +27,9 @@ jobs:
           go build -o bin/repo-generator
           bin/repo-generator
         env:
-          GITHUB_TOKEN: ${{ secrets.ORG_ADMIN_TOKEN }}
-          ORG_NAME: 'code-with-auto1'
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#          ORG_NAME: 'code-with-auto1'
+          ORG_NAME: 'yuseferi-test-org'
           newRepoName: '${{ github.event.inputs.repo-name }}'
           githubUsername: '${{ github.event.inputs.username }}'
       - name: Log URL to the repo
