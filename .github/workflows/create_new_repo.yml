@@ -1,19 +1,13 @@
 name: create new repository to php candidate
-description: A tool for HR team to create new repository to php candidate
-branding:
-  icon: 'thumbs-up'
-  color: 'white'
 on:
   workflow_dispatch:
     inputs:
       repo-name:
-        description: 'Name of the repository to be created(use php_challenge_CANDIDATE_GITHUB_USERNAME'
+        description: 'Name of the repository to be created(use php_challenge_CANDIDATE_GITHUB_USERNAME)'
         required: true
-        default: ''
       username:
         description: 'Candidate github username'
         required: true
-        default: ''
 jobs:
   create-repository:
     runs-on: ubuntu-latest
@@ -32,5 +26,5 @@ jobs:
           ORG_NAME: 'yuseferi-test-org'
           newRepoName: '${{ github.event.inputs.repo-name }}'
           githubUsername: '${{ github.event.inputs.username }}'
-      - name: Log URL to the repo
-        run: echo "The new repo is ${{ steps.create-repo.outputs.repo-url }}"
+#      - name: Log URL to the repo
+#        run: echo "The new repo is ${{ steps.create-repo.outputs.repo-url }}"
