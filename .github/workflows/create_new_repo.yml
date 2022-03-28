@@ -34,5 +34,6 @@ jobs:
           ORG_NAME: 'yuseferi-test-org'
           NEW_REPO_NAME: '${{ github.event.inputs.repo-name }}'
           GITHUB_USERNAME: '${{ github.event.inputs.username }}'
-      - name: Log URL to the repo
-        run: echo "The new repo is ${{ steps.run.outputs.repo_url }}"
+
+      - name: "Repo created successfully and the candidate has been invited log"
+        run: echo "New Repository created ${{ steps.run.outputs.repo_url }} and ${{ github.event.inputs.username }} has been invited to it."
