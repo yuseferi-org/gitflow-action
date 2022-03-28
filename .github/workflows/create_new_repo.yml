@@ -31,7 +31,7 @@ jobs:
           ADMIN_GITHUB_TOKEN: ${{ secrets.ADMIN_GITHUB_TOKEN }}
           #          ORG_NAME: 'code-with-auto1'
           ORG_NAME: 'yuseferi-test-org'
-          newRepoName: '${{ github.event.inputs.repo-name }}'
-          githubUsername: '${{ github.event.inputs.username }}'
+          NEW_REPO_NAME: '${{ github.event.inputs.repo-name }}'
+          GITHUB_USERNAME: '${{ github.event.inputs.username }}'
 #      - name: Log URL to the repo
 #        run: echo "The new repo is ${{ steps.create-repo.outputs.repo-url }}"
